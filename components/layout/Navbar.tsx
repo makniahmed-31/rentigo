@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -25,7 +25,7 @@ const NAV_LINKS = [
   { href: "/contact", label: "contact" as const },
 ];
 
-export default function Navbar() {
+function NavContent() {
   const { t, lang, setLang } = useLanguage();
   const { data: session } = useSession();
   const pathname = usePathname();
@@ -46,7 +46,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 gap-8">
           {/* Logo */}
@@ -80,7 +80,6 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-2 ml-auto shrink-0">
-            {/* Language */}
             <button
               onClick={() => setLang(lang === "fr" ? "ar" : "fr")}
               className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors"
@@ -223,9 +222,7 @@ export default function Navbar() {
               </Link>
             ) : (
               <button
-                onClick={() => {
-                  signOut({ callbackUrl: "/" });
-                }}
+                onClick={() => signOut({ callbackUrl: "/" })}
                 className="flex-1 py-2 text-sm font-medium text-red-600 border border-red-200 rounded-lg"
               >
                 {t.nav.logout}
@@ -234,6 +231,16 @@ export default function Navbar() {
           </div>
         </div>
       )}
+    </>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <Suspense fallback={<div className="h-16" />}>
+        <NavContent />
+      </Suspense>
     </nav>
   );
 }
