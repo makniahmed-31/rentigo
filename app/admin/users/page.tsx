@@ -76,7 +76,7 @@ export default function AdminUsersPage() {
                         {u.image ? (
                           <Image src={u.image} alt="" width={32} height={32} className="rounded-full" />
                         ) : (
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xs font-bold">{u.name?.[0]}</div>
+                          <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-xs font-bold">{u.name?.[0]}</div>
                         )}
                         <div>
                           <p className="font-medium text-gray-900">{u.name}</p>
@@ -87,7 +87,7 @@ export default function AdminUsersPage() {
                     <td className="px-4 py-3 text-gray-500 text-xs">{u.phone || "—"}</td>
                     <td className="px-4 py-3 text-gray-500 text-xs">{(u as unknown as { createdAt: string }).createdAt ? formatDate((u as unknown as { createdAt: string }).createdAt) : "—"}</td>
                     <td className="px-4 py-3">
-                      <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${u.role === "admin" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600"}`}>
+                      <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${u.role === "admin" ? "bg-primary-100 text-primary-700" : "bg-gray-100 text-gray-600"}`}>
                         {u.role}
                       </span>
                     </td>

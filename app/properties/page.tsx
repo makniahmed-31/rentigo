@@ -89,13 +89,13 @@ function PropertiesContent() {
           <div className="flex border border-gray-200 rounded-xl overflow-hidden">
             <button
               onClick={() => setView("grid")}
-              className={`p-2.5 transition-colors ${view === "grid" ? "bg-blue-600 text-white" : "bg-white text-gray-500 hover:bg-gray-50"}`}
+              className={`p-2.5 transition-colors ${view === "grid" ? "bg-primary-600 text-white" : "bg-white text-gray-500 hover:bg-gray-50"}`}
             >
               <LayoutGrid className="w-4 h-4" />
             </button>
             <button
               onClick={() => setView("map")}
-              className={`p-2.5 transition-colors ${view === "map" ? "bg-blue-600 text-white" : "bg-white text-gray-500 hover:bg-gray-50"}`}
+              className={`p-2.5 transition-colors ${view === "map" ? "bg-primary-600 text-white" : "bg-white text-gray-500 hover:bg-gray-50"}`}
             >
               <Map className="w-4 h-4" />
             </button>
@@ -120,7 +120,7 @@ function PropertiesContent() {
       ) : properties.length === 0 ? (
         <div className="text-center py-24">
           <p className="text-gray-400 text-lg">{t.common.noResults}</p>
-          <Link href="/properties" className="mt-4 inline-block text-sm text-blue-600 hover:underline">
+          <Link href="/properties" className="mt-4 inline-block text-sm text-primary-600 hover:underline">
             Voir tous les biens
           </Link>
         </div>
@@ -146,7 +146,7 @@ function PropertiesContent() {
               <button
                 key={p}
                 onClick={() => setPage(p)}
-                className={`w-10 h-10 text-sm rounded-xl transition-colors ${page === p ? "bg-blue-600 text-white" : "border border-gray-200 hover:bg-gray-50"}`}
+                className={`w-10 h-10 text-sm rounded-xl transition-colors ${page === p ? "bg-primary-600 text-white" : "border border-gray-200 hover:bg-gray-50"}`}
               >
                 {p}
               </button>

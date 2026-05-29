@@ -1,12 +1,12 @@
 "use client"
 import { createContext, useContext, useState, useEffect, ReactNode } from "react"
 import fr from "@/messages/fr.json"
-import en from "@/messages/en.json"
+import ar from "@/messages/ar.json"
 
-export type Language = "fr" | "en"
+export type Language = "fr" | "ar"
 export type Messages = typeof fr
 
-const messages: Record<Language, Messages> = { fr, en }
+const messages: Record<Language, Messages> = { fr, ar }
 
 interface LanguageContextType {
   lang: Language
@@ -25,8 +25,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("rentigo-lang") as Language
-    if (saved === "fr" || saved === "en") setLangState(saved)
+    if (saved === "fr" || saved === "ar") setLangState(saved)
   }, [])
+
+  useEffect(() => {
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"
+    document.documentElement.lang = lang
+  }, [lang])
 
   const setLang = (l: Language) => {
     setLangState(l)

@@ -67,7 +67,7 @@ export default function ImageCarousel({ images, title }: Props) {
               key={i}
               onClick={() => setCurrent(i)}
               className={`relative w-20 h-16 rounded-lg overflow-hidden shrink-0 border-2 transition-colors ${
-                i === current ? "border-blue-500" : "border-transparent"
+                i === current ? "border-primary-500" : "border-transparent"
               }`}
             >
               <Image src={img.url} alt="" fill className="object-cover" sizes="80px" />

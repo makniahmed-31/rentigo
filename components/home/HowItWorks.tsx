@@ -3,7 +3,7 @@ import { Search, Calendar, CheckCircle, MessageCircle, Shield } from "lucide-rea
 import { useLanguage } from "@/contexts/LanguageContext"
 
 const steps = [
-  { icon: Search, color: "bg-blue-100 text-blue-600", n: 1 },
+  { icon: Search, color: "bg-primary-100 text-primary-600", n: 1 },
   { icon: Calendar, color: "bg-purple-100 text-purple-600", n: 2 },
   { icon: CheckCircle, color: "bg-green-100 text-green-600", n: 3 },
   { icon: MessageCircle, color: "bg-orange-100 text-orange-600", n: 4 },
@@ -34,7 +34,7 @@ export default function HowItWorks() {
               )}
               <div className={`relative z-10 w-16 h-16 ${color} rounded-2xl flex items-center justify-center mb-4 shadow-sm`}>
                 <Icon className="w-7 h-7" />
-                <span className="absolute -top-2 -right-2 w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 w-6 h-6 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
                   {n}
                 </span>
               </div>

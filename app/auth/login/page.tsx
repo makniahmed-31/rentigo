@@ -18,12 +18,12 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel - visual */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-blue-700 flex-col justify-between p-12">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-primary-700 flex-col justify-between p-12">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80')] bg-cover bg-center opacity-30" />
         <div className="relative z-10">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center">
-              <Home className="w-5 h-5 text-blue-700" />
+              <Home className="w-5 h-5 text-primary-700" />
             </div>
             <span className="text-xl font-bold text-white">Rentigo</span>
           </Link>
@@ -34,8 +34,8 @@ export default function LoginPage() {
           </h2>
           <div className="space-y-3">
             {["Annonces vérifiées", "Réservation en quelques clics", "Suivi sur WhatsApp"].map(item => (
-              <div key={item} className="flex items-center gap-3 text-blue-100">
-                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+              <div key={item} className="flex items-center gap-3 text-primary-100">
+                <div className="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center">
                   <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
@@ -64,7 +64,7 @@ export default function LoginPage() {
           <div className="w-full max-w-sm">
             {/* Mobile logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
                 <Home className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">Rentigo</span>
@@ -89,7 +89,7 @@ export default function LoginPage() {
 
             <p className="mt-8 text-center text-sm text-gray-500">
               {t.auth.noAccount}{" "}
-              <Link href="/auth/login" className="font-medium text-blue-600 hover:underline">
+              <Link href="/auth/login" className="font-medium text-primary-600 hover:underline">
                 {t.auth.register}
               </Link>
             </p>

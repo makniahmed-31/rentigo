@@ -70,7 +70,7 @@ export default function ProfilePage() {
             {session?.user.image ? (
               <Image src={session.user.image} alt="" width={80} height={80} className="rounded-full" />
             ) : (
-              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl font-bold">
+              <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-2xl font-bold">
                 {session?.user.name?.[0]}
               </div>
             )}
@@ -78,15 +78,15 @@ export default function ProfilePage() {
           <h2 className="font-bold text-gray-900">{session?.user.name}</h2>
           <p className="text-sm text-gray-500">{session?.user.email}</p>
           {session?.user.role === "admin" && (
-            <span className="mt-2 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Admin</span>
+            <span className="mt-2 px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">Admin</span>
           )}
 
           <div className="mt-6 w-full space-y-2">
             <Link href="/reservations" className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-gray-50 transition-colors">
-              <ClipboardList className="w-4 h-4 text-blue-500" />
+              <ClipboardList className="w-4 h-4 text-primary-500" />
               {t.profile.myReservations}
             </Link>
-            <Link href="/profile" className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm text-gray-700 bg-blue-50 text-blue-700">
+            <Link href="/profile" className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm text-gray-700 bg-primary-50 text-primary-700">
               <Settings className="w-4 h-4" />
               {t.profile.personalInfo}
             </Link>
@@ -103,7 +103,7 @@ export default function ProfilePage() {
                 type="text"
                 value={form.name}
                 onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
             <div>
@@ -122,7 +122,7 @@ export default function ProfilePage() {
                 value={form.phone}
                 onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
                 placeholder="+216 XX XXX XXX"
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
             <div>
@@ -130,7 +130,7 @@ export default function ProfilePage() {
               <select
                 value={form.language}
                 onChange={e => setForm(f => ({ ...f, language: e.target.value }))}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="fr">Français</option>
                 <option value="en">English</option>
@@ -139,7 +139,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={saving}
-              className="w-full py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 disabled:opacity-60 transition-colors"
+              className="w-full py-3 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 disabled:opacity-60 transition-colors"
             >
               {saving ? "Enregistrement..." : t.profile.save}
             </button>

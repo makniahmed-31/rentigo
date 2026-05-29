@@ -80,7 +80,7 @@ export default function AdminReservationsPage() {
             onClick={() => setFilter(tab.value)}
             className={cn("pb-3 px-4 text-sm font-medium transition-colors border-b-2 -mb-px",
               filter === tab.value
-                ? "border-blue-600 text-blue-600"
+                ? "border-primary-600 text-primary-600"
                 : "border-transparent text-gray-500 hover:text-gray-700"
             )}
           >
@@ -118,7 +118,7 @@ export default function AdminReservationsPage() {
                         {r.user.image ? (
                           <Image src={r.user.image} alt="" width={28} height={28} className="rounded-full" />
                         ) : (
-                          <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 text-xs font-bold">{r.user.name?.[0]}</div>
+                          <div className="w-7 h-7 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 text-xs font-bold">{r.user.name?.[0]}</div>
                         )}
                         <div>
                           <p className="font-medium text-gray-900 text-xs">{r.user.name}</p>
@@ -127,7 +127,7 @@ export default function AdminReservationsPage() {
                       </div>
                     </td>
                     <td className="px-4 py-3">
-                      <Link href={`/properties/${r.property._id}`} className="font-medium text-gray-800 hover:text-blue-600 text-xs truncate max-w-[150px] block">
+                      <Link href={`/properties/${r.property._id}`} className="font-medium text-gray-800 hover:text-primary-600 text-xs truncate max-w-[150px] block">
                         {r.property.title}
                       </Link>
                     </td>
@@ -137,7 +137,7 @@ export default function AdminReservationsPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-gray-500 text-xs">{formatDate(r.createdAt)}</td>
-                    <td className="px-4 py-3 font-semibold text-blue-600 text-xs">
+                    <td className="px-4 py-3 font-semibold text-primary-600 text-xs">
                       {r.depositAmount ? formatPrice(r.depositAmount) : "—"}
                     </td>
                     <td className="px-4 py-3">

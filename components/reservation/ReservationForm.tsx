@@ -88,7 +88,7 @@ export default function ReservationForm({ property }: Props) {
           Suivre sur WhatsApp
         </a>
         <div className="mt-4">
-          <Link href="/reservations" className="text-sm text-blue-600 hover:underline">
+          <Link href="/reservations" className="text-sm text-primary-600 hover:underline">
             Voir mes demandes →
           </Link>
         </div>
@@ -107,7 +107,7 @@ export default function ReservationForm({ property }: Props) {
         )}
         <div className="min-w-0">
           <p className="font-semibold text-gray-900 text-sm truncate">{property.title}</p>
-          <p className="text-blue-600 font-bold text-sm">{formatPrice(property.price)}{property.type === "rent" && "/mois"}</p>
+          <p className="text-primary-600 font-bold text-sm">{formatPrice(property.price)}{property.type === "rent" && "/mois"}</p>
           <p className="text-xs text-gray-500">{property.location?.city}, {property.location?.governorate}</p>
         </div>
       </div>
@@ -123,7 +123,7 @@ export default function ReservationForm({ property }: Props) {
               onClick={() => setFormData(f => ({ ...f, requestType: rt }))}
               className={`py-2.5 text-sm font-medium rounded-xl border-2 transition-colors ${
                 formData.requestType === rt
-                  ? "border-blue-600 bg-blue-50 text-blue-700"
+                  ? "border-primary-600 bg-primary-50 text-primary-700"
                   : "border-gray-200 text-gray-600 hover:border-gray-300"
               }`}
             >
@@ -136,7 +136,7 @@ export default function ReservationForm({ property }: Props) {
       {/* Date */}
       <div>
         <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-          <Calendar className="w-4 h-4 text-blue-500" />
+          <Calendar className="w-4 h-4 text-primary-500" />
           {formData.requestType === "visit" ? t.reservation.visitDate : t.reservation.startDate}
         </label>
         <input
@@ -148,7 +148,7 @@ export default function ReservationForm({ property }: Props) {
             ? { ...f, visitDate: e.target.value }
             : { ...f, startDate: e.target.value }
           )}
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
       </div>
 
@@ -156,13 +156,13 @@ export default function ReservationForm({ property }: Props) {
       {formData.requestType === "visit" && (
         <div>
           <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-            <Clock className="w-4 h-4 text-blue-500" />
+            <Clock className="w-4 h-4 text-primary-500" />
             {t.reservation.visitTime}
           </label>
           <select
             value={formData.visitTime}
             onChange={e => setFormData(f => ({ ...f, visitTime: e.target.value }))}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             {["09:00","10:00","11:00","12:00","14:00","15:00","16:00","17:00"].map(h => (
               <option key={h} value={h}>{h}</option>
@@ -178,7 +178,7 @@ export default function ReservationForm({ property }: Props) {
           <select
             value={formData.duration}
             onChange={e => setFormData(f => ({ ...f, duration: e.target.value }))}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             {["1","3","6","12","24"].map(m => (
               <option key={m} value={m}>{m} mois</option>
@@ -191,19 +191,19 @@ export default function ReservationForm({ property }: Props) {
       {formData.requestType === "reservation" && (
         <div>
           <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-            <CreditCard className="w-4 h-4 text-blue-500" />
+            <CreditCard className="w-4 h-4 text-primary-500" />
             {t.reservation.paymentMethod}
           </label>
           <div className="space-y-2">
             {(["virement","cash","mandat-minute"] as const).map(m => (
-              <label key={m} className="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-blue-300 transition-colors">
+              <label key={m} className="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-primary-300 transition-colors">
                 <input
                   type="radio"
                   name="paymentMethod"
                   value={m}
                   checked={formData.paymentMethod === m}
                   onChange={() => setFormData(f => ({ ...f, paymentMethod: m }))}
-                  className="text-blue-600"
+                  className="text-primary-600"
                 />
                 <span className="text-sm font-medium text-gray-700">
                   {m === "virement" ? t.reservation.virement : m === "cash" ? t.reservation.cash : t.reservation.mandatMinute}
@@ -217,7 +217,7 @@ export default function ReservationForm({ property }: Props) {
       {/* Notes */}
       <div>
         <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-          <MessageSquare className="w-4 h-4 text-blue-500" />
+          <MessageSquare className="w-4 h-4 text-primary-500" />
           {t.reservation.notes}
         </label>
         <textarea
@@ -225,13 +225,13 @@ export default function ReservationForm({ property }: Props) {
           value={formData.notes}
           onChange={e => setFormData(f => ({ ...f, notes: e.target.value }))}
           placeholder="Votre message..."
-          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
         />
       </div>
 
       {/* Summary */}
       {formData.requestType === "reservation" && (
-        <div className="bg-blue-50 rounded-xl p-4 space-y-2">
+        <div className="bg-primary-50 rounded-xl p-4 space-y-2">
           <h4 className="font-semibold text-gray-900 text-sm">{t.reservation.summary}</h4>
           <div className="flex justify-between text-sm">
             <span className="text-gray-600">{t.reservation.total}</span>
@@ -239,7 +239,7 @@ export default function ReservationForm({ property }: Props) {
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-gray-600">{t.reservation.deposit}</span>
-            <span className="font-bold text-blue-600">{formatPrice(depositAmount)}</span>
+            <span className="font-bold text-primary-600">{formatPrice(depositAmount)}</span>
           </div>
         </div>
       )}
@@ -250,7 +250,7 @@ export default function ReservationForm({ property }: Props) {
           type="checkbox"
           checked={formData.acceptTerms}
           onChange={e => setFormData(f => ({ ...f, acceptTerms: e.target.checked }))}
-          className="mt-0.5 text-blue-600 rounded"
+          className="mt-0.5 text-primary-600 rounded"
         />
         <span className="text-xs text-gray-500">{t.reservation.terms}</span>
       </label>
@@ -258,7 +258,7 @@ export default function ReservationForm({ property }: Props) {
       {!session ? (
         <Link
           href="/auth/login"
-          className="block w-full py-3 text-center text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors"
+          className="block w-full py-3 text-center text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 transition-colors"
         >
           Se connecter pour réserver
         </Link>
@@ -266,7 +266,7 @@ export default function ReservationForm({ property }: Props) {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 disabled:opacity-60 transition-colors"
+          className="w-full py-3 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 disabled:opacity-60 transition-colors"
         >
           {submitting ? "Envoi en cours..." : t.reservation.submit}
         </button>

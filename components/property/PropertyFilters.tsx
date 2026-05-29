@@ -55,12 +55,12 @@ export default function PropertyFilters() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-blue-400 transition-colors"
+        className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-primary-400 transition-colors"
       >
         <SlidersHorizontal className="w-4 h-4" />
         {t.search.filters}
         {activeCount > 0 && (
-          <span className="w-5 h-5 bg-blue-600 text-white text-xs rounded-full flex items-center justify-center">
+          <span className="w-5 h-5 bg-primary-600 text-white text-xs rounded-full flex items-center justify-center">
             {activeCount}
           </span>
         )}
@@ -82,7 +82,7 @@ export default function PropertyFilters() {
               <select
                 value={filters.type || ""}
                 onChange={(e) => setFilters(f => ({ ...f, type: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="">{t.search.allTypes}</option>
                 <option value="sale">{t.property.forSale}</option>
@@ -96,7 +96,7 @@ export default function PropertyFilters() {
               <select
                 value={filters.propertyType || ""}
                 onChange={(e) => setFilters(f => ({ ...f, propertyType: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="">{t.search.allTypes}</option>
                 {["apartment","villa","house","commercial","terrain","office"].map(pt => (
@@ -111,7 +111,7 @@ export default function PropertyFilters() {
               <select
                 value={filters.governorate || ""}
                 onChange={(e) => setFilters(f => ({ ...f, governorate: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="">{t.search.allTunisia}</option>
                 {TUNISIAN_GOVERNORATES.map(g => (
@@ -129,14 +129,14 @@ export default function PropertyFilters() {
                   placeholder={t.search.min}
                   value={filters.minPrice || ""}
                   onChange={(e) => setFilters(f => ({ ...f, minPrice: e.target.value }))}
-                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
                 <input
                   type="number"
                   placeholder={t.search.max}
                   value={filters.maxPrice || ""}
                   onChange={(e) => setFilters(f => ({ ...f, maxPrice: e.target.value }))}
-                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function PropertyFilters() {
                     key={r}
                     onClick={() => setFilters(f => ({ ...f, rooms: f.rooms === r ? "" : r }))}
                     className={`flex-1 py-1.5 text-sm rounded-lg border transition-colors ${
-                      filters.rooms === r ? "bg-blue-600 text-white border-blue-600" : "border-gray-200 text-gray-600 hover:border-blue-400"
+                      filters.rooms === r ? "bg-primary-600 text-white border-primary-600" : "border-gray-200 text-gray-600 hover:border-primary-400"
                     }`}
                   >
                     {r}
@@ -164,7 +164,7 @@ export default function PropertyFilters() {
             <button onClick={reset} className="flex-1 py-2 text-sm text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
               {t.search.reset}
             </button>
-            <button onClick={apply} className="flex-1 py-2 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors">
+            <button onClick={apply} className="flex-1 py-2 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 transition-colors">
               {t.search.apply}
             </button>
           </div>

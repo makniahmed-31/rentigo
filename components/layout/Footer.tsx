@@ -13,14 +13,14 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
                 <Home className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-white">Rentigo</span>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-4">{t.footer.description}</p>
             <div className="flex gap-3">
-              <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors text-white text-xs font-bold">f</a>
+              <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors text-white text-xs font-bold">f</a>
               <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-600 transition-colors text-white text-xs font-bold">in</a>
               <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors text-white text-xs font-bold">yt</a>
             </div>
@@ -52,15 +52,15 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t.footer.contact}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                <Phone className="w-4 h-4 text-primary-400 shrink-0" />
                 <a href="tel:+21670123456" className="hover:text-white transition-colors">+216 70 123 456</a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                <Mail className="w-4 h-4 text-primary-400 shrink-0" />
                 <a href="mailto:contact@rentigo.tn" className="hover:text-white transition-colors">contact@rentigo.tn</a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <span>Les Berges du Lac, Tunis, Tunisie</span>
               </li>
             </ul>
@@ -71,8 +71,8 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Disponible en</h3>
             <div className="flex gap-2 mb-4">
               <span className="px-3 py-1.5 bg-red-700 text-white text-xs font-medium rounded-lg">TN</span>
-              <span className="px-3 py-1.5 bg-blue-700 text-white text-xs font-medium rounded-lg">FR</span>
-              <span className="px-3 py-1.5 bg-blue-800 text-white text-xs font-medium rounded-lg">EN</span>
+              <span className="px-3 py-1.5 bg-primary-700 text-white text-xs font-medium rounded-lg">FR</span>
+              <span className="px-3 py-1.5 bg-primary-800 text-white text-xs font-medium rounded-lg">EN</span>
             </div>
             <h3 className="text-white font-semibold mb-3">Paiement</h3>
             <div className="space-y-1.5 text-sm">

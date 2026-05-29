@@ -18,8 +18,8 @@ export default function StatsBar() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map(({ icon: Icon, value, labelKey }) => (
             <div key={labelKey} className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
-                <Icon className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center shrink-0">
+                <Icon className="w-6 h-6 text-primary-600" />
               </div>
               <div>
                 <p className="text-2xl font-extrabold text-gray-900">{value}</p>

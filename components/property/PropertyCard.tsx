@@ -16,7 +16,7 @@ interface Props {
 const TYPE_BADGE = {
   sale_immediate: { label: "À vendre", cls: "bg-green-500" },
   sale_surplan: { label: "Sur plan", cls: "bg-orange-400" },
-  rent: { label: "À louer", cls: "bg-blue-500" },
+  rent: { label: "À louer", cls: "bg-primary-500" },
 }
 
 export default function PropertyCard({ property, compact }: Props) {
@@ -87,7 +87,7 @@ export default function PropertyCard({ property, compact }: Props) {
       {/* Content */}
       <Link href={`/properties/${property._id}`} className="block p-4">
         {/* Price */}
-        <p className={cn("font-extrabold text-blue-600", compact ? "text-base" : "text-lg")}>
+        <p className={cn("font-extrabold text-primary-600", compact ? "text-base" : "text-lg")}>
           {isSurPlan && <span className="text-sm font-semibold text-gray-500 mr-1">À partir de</span>}
           {formatPrice(property.price)}
           {property.type === "rent" && <span className="text-sm font-normal text-gray-400"> / mois</span>}
@@ -101,7 +101,7 @@ export default function PropertyCard({ property, compact }: Props) {
         {/* Location */}
         {location && (
           <div className="flex items-center gap-1 mt-1.5">
-            <MapPin className="w-3 h-3 text-blue-400 shrink-0" />
+            <MapPin className="w-3 h-3 text-primary-400 shrink-0" />
             <span className="text-xs text-gray-400">{location}</span>
           </div>
         )}

@@ -13,7 +13,7 @@ const BACKEND = process.env.NEXT_PUBLIC_API_BACKEND_URL || "http://localhost:500
 
 const statusBadge: Record<string, string> = {
   available: "bg-green-100 text-green-700",
-  rented: "bg-blue-100 text-blue-700",
+  rented: "bg-primary-100 text-primary-700",
   sold: "bg-gray-100 text-gray-600",
   pending: "bg-yellow-100 text-yellow-700",
 }
@@ -64,7 +64,7 @@ export default function AdminPropertiesPage() {
         <h1 className="text-2xl font-bold text-gray-900">{t.admin.properties}</h1>
         <Link
           href="/admin/properties/new"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-xl hover:bg-primary-700 transition-colors"
         >
           <Plus className="w-4 h-4" />
           {t.admin.addProperty}
@@ -121,12 +121,12 @@ export default function AdminPropertiesPage() {
                     </td>
                     <td className="px-4 py-3">
                       <span className={cn("text-xs px-2 py-1 rounded-full font-medium",
-                        p.type === "sale" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
+                        p.type === "sale" ? "bg-green-100 text-green-700" : "bg-primary-100 text-primary-700"
                       )}>
                         {p.type === "sale" ? "Vente" : "Location"}
                       </span>
                     </td>
-                    <td className="px-4 py-3 font-semibold text-blue-600">{formatPrice(p.price)}</td>
+                    <td className="px-4 py-3 font-semibold text-primary-600">{formatPrice(p.price)}</td>
                     <td className="px-4 py-3">
                       <span className={cn("text-xs px-2 py-1 rounded-full font-medium", statusBadge[p.status])}>
                         {p.status}
@@ -135,7 +135,7 @@ export default function AdminPropertiesPage() {
                     <td className="px-4 py-3 text-gray-500">{p.views || 0}</td>
                     <td className="px-4 py-3">
                       <div className="flex gap-1">
-                        <Link href={`/properties/${p._id}`} className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                        <Link href={`/properties/${p._id}`} className="p-1.5 text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
                           <Eye className="w-4 h-4" />
                         </Link>
                         <Link href={`/admin/properties/${p._id}/edit`} className="p-1.5 text-gray-500 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors">

@@ -35,7 +35,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-sky-50 via-white to-blue-50 overflow-hidden min-h-[560px] flex items-center">
+    <section className="relative bg-gradient-to-br from-sky-50 via-white to-primary-50 overflow-hidden min-h-[560px] flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 lg:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* LEFT — text + search */}
@@ -43,7 +43,7 @@ export default function HeroSection() {
             <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
               {t.hero.title}
               <br />
-              <span className="text-blue-600">{t.hero.subtitle}</span>
+              <span className="text-primary-600">{t.hero.subtitle}</span>
             </h1>
             <p className="mt-4 text-base text-gray-500 max-w-sm leading-relaxed">
               {t.hero.description}
@@ -58,8 +58,8 @@ export default function HeroSection() {
                   className={cn(
                     "px-5 py-2 rounded-lg text-sm font-semibold transition-colors border",
                     tab === tb
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:text-blue-600",
+                      ? "bg-primary-600 text-white border-primary-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-primary-400 hover:text-primary-600",
                   )}
                 >
                   {tb === "sale"
@@ -76,7 +76,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
                 {/* Location */}
                 <div className="flex items-center gap-2 px-4 py-3 flex-1">
-                  <MapPin className="w-4 h-4 text-blue-500 shrink-0" />
+                  <MapPin className="w-4 h-4 text-primary-500 shrink-0" />
                   <div className="flex flex-col min-w-0">
                     <span className="text-[10px] font-semibold text-gray-400 uppercase leading-none mb-0.5">
                       {t.search.location}
@@ -98,7 +98,7 @@ export default function HeroSection() {
 
                 {/* Property type */}
                 <div className="flex items-center gap-2 px-4 py-3 flex-1">
-                  <Home className="w-4 h-4 text-blue-500 shrink-0" />
+                  <Home className="w-4 h-4 text-primary-500 shrink-0" />
                   <div className="flex flex-col min-w-0">
                     <span className="text-[10px] font-semibold text-gray-400 uppercase leading-none mb-0.5">
                       {t.search.type}
@@ -127,7 +127,7 @@ export default function HeroSection() {
 
                 {/* Max price */}
                 <div className="flex items-center gap-2 px-4 py-3 flex-1">
-                  <DollarSign className="w-4 h-4 text-blue-500 shrink-0" />
+                  <DollarSign className="w-4 h-4 text-primary-500 shrink-0" />
                   <div className="flex flex-col min-w-0">
                     <span className="text-[10px] font-semibold text-gray-400 uppercase leading-none mb-0.5">
                       {t.search.maxPrice}
@@ -149,7 +149,7 @@ export default function HeroSection() {
                 {/* Search button */}
                 <button
                   onClick={handleSearch}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 transition-colors shrink-0 sm:rounded-none rounded-b-xl sm:rounded-r-xl"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white text-sm font-bold hover:bg-primary-700 transition-colors shrink-0 sm:rounded-none rounded-b-xl sm:rounded-r-xl"
                 >
                   <Search className="w-4 h-4" />
                   {t.hero.search}
@@ -160,22 +160,16 @@ export default function HeroSection() {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-5 mt-5">
               {[
-                t.hero.search === "Search"
-                  ? "Quick response"
-                  : "Réponse rapide",
-                t.hero.search === "Search"
-                  ? "Verified listings"
-                  : "Annonces vérifiées",
-                t.hero.search === "Search"
-                  ? "Personalized support"
-                  : "Accompagnement personnalisé",
+                t.features.verifiedDesc,
+                t.features.bookingDesc,
+                t.features.supportDesc,
               ].map((badge) => (
                 <div
                   key={badge}
                   className="flex items-center gap-1.5 text-sm text-gray-600"
                 >
-                  <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Check className="w-2.5 h-2.5 text-blue-600" />
+                  <div className="w-4 h-4 bg-primary-100 rounded-full flex items-center justify-center">
+                    <Check className="w-2.5 h-2.5 text-primary-600" />
                   </div>
                   {badge}
                 </div>
@@ -187,8 +181,8 @@ export default function HeroSection() {
           <div className="hidden lg:block relative">
             {/* Location badge */}
             <div className="absolute top-8 left-8 z-10 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
-                <MapPin className="w-4 h-4 text-blue-600" />
+              <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center shrink-0">
+                <MapPin className="w-4 h-4 text-primary-600" />
               </div>
               <div>
                 <p className="text-sm font-bold text-gray-900">
@@ -213,7 +207,7 @@ export default function HeroSection() {
       </div>
 
       {/* decorative blur */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-40 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-40 pointer-events-none" />
     </section>
   );
 }

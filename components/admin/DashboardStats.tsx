@@ -13,7 +13,7 @@ export default function DashboardStats({ stats }: { stats: AdminStats }) {
       value: stats.totalProperties,
       sub: `${stats.availableProperties} disponibles`,
       icon: Building2,
-      color: "bg-blue-500",
+      color: "bg-primary-500",
     },
     {
       title: t.admin.totalReservations,

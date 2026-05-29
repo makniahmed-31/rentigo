@@ -80,7 +80,7 @@ export default function AdminDashboard() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-bold text-gray-900">{t.admin.recentReservations}</h2>
-          <Link href="/admin/reservations" className="text-sm text-blue-600 hover:underline">
+          <Link href="/admin/reservations" className="text-sm text-primary-600 hover:underline">
             Voir tout →
           </Link>
         </div>
@@ -107,7 +107,7 @@ export default function AdminDashboard() {
                         {r.user.image ? (
                           <Image src={r.user.image} alt="" width={28} height={28} className="rounded-full" />
                         ) : (
-                          <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xs font-bold">
+                          <div className="w-7 h-7 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-xs font-bold">
                             {r.user.name?.[0]}
                           </div>
                         )}
@@ -122,7 +122,7 @@ export default function AdminDashboard() {
                         {r.property.images?.[0]?.url && (
                           <Image src={r.property.images[0].url} alt="" width={36} height={28} className="rounded-lg object-cover" />
                         )}
-                        <Link href={`/properties/${r.property._id}`} className="font-medium text-gray-800 hover:text-blue-600 truncate max-w-[140px]">
+                        <Link href={`/properties/${r.property._id}`} className="font-medium text-gray-800 hover:text-primary-600 truncate max-w-[140px]">
                           {r.property.title}
                         </Link>
                       </div>
@@ -133,7 +133,7 @@ export default function AdminDashboard() {
                       </span>
                     </td>
                     <td className="py-3 text-gray-500 text-xs">{formatDate(r.createdAt)}</td>
-                    <td className="py-3 font-semibold text-blue-600">
+                    <td className="py-3 font-semibold text-primary-600">
                       {r.depositAmount ? formatPrice(r.depositAmount) : "—"}
                     </td>
                     <td className="py-3">

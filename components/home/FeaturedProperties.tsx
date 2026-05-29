@@ -49,7 +49,7 @@ export default function FeaturedProperties({ title, apiUrl }: Props) {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-gray-900">{title}</h2>
-          <Link href="/properties" className="text-sm font-medium text-blue-600 hover:underline flex items-center gap-1">
+          <Link href="/properties" className="text-sm font-medium text-primary-600 hover:underline flex items-center gap-1">
             {t.property.seeAll} <span>→</span>
           </Link>
         </div>

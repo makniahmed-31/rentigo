@@ -16,7 +16,7 @@ export default function AboutPage() {
       </div>
 
       {/* Mission */}
-      <div className="bg-blue-50 rounded-3xl p-8 mb-10">
+      <div className="bg-primary-50 rounded-3xl p-8 mb-10">
         <h2 className="text-xl font-bold text-gray-900 mb-3">Notre mission</h2>
         <p className="text-gray-600 leading-relaxed">
           Simplifier vos recherches et vous accompagner à chaque étape de votre projet immobilier. Que vous souhaitiez acheter, louer ou investir sur plan, Rentigo est là pour vous offrir une expérience transparente et sécurisée.
@@ -32,8 +32,8 @@ export default function AboutPage() {
           { icon: Award, title: "Excellence", desc: "+8000 clients satisfaits en Tunisie" },
         ].map(({ icon: Icon, title, desc }) => (
           <div key={title} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <Icon className="w-6 h-6 text-blue-600" />
+            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Icon className="w-6 h-6 text-primary-600" />
             </div>
             <h3 className="font-bold text-gray-900 text-sm mb-1">{title}</h3>
             <p className="text-xs text-gray-500">{desc}</p>
@@ -49,9 +49,9 @@ export default function AboutPage() {
           { value: "1,200+", label: "Transactions réalisées" },
           { value: "100%", label: "Annonces vérifiées" },
         ].map(({ value, label }) => (
-          <div key={label} className="bg-blue-600 rounded-2xl p-5 text-white text-center">
+          <div key={label} className="bg-primary-600 rounded-2xl p-5 text-white text-center">
             <p className="text-3xl font-extrabold">{value}</p>
-            <p className="text-sm text-blue-100 mt-1">{label}</p>
+            <p className="text-sm text-primary-100 mt-1">{label}</p>
           </div>
         ))}
       </div>

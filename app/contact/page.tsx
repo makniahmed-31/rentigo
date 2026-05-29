@@ -41,9 +41,9 @@ export default function ContactPage() {
               { icon: Mail, label: "contact@rentigo.tn", href: "mailto:contact@rentigo.tn" },
               { icon: MapPin, label: "Les Berges du Lac, Tunis, Tunisie", href: "#" },
             ].map(({ icon: Icon, label, href }) => (
-              <a key={label} href={href} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors mb-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-blue-600" />
+              <a key={label} href={href} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary-50 transition-colors mb-3">
+                <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-primary-600" />
                 </div>
                 <span className="text-sm font-medium text-gray-700">{label}</span>
               </a>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   required
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                   type="tel"
                   value={form.phone}
                   onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                 required
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
             <div>
@@ -103,13 +103,13 @@ export default function ContactPage() {
                 rows={5}
                 value={form.message}
                 onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
               />
             </div>
             <button
               type="submit"
               disabled={sending}
-              className="w-full py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 disabled:opacity-60 transition-colors"
+              className="w-full py-3 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 disabled:opacity-60 transition-colors"
             >
               {sending ? "Envoi..." : "Envoyer"}
             </button>

@@ -64,7 +64,7 @@ export default function ReservationsPage() {
             onClick={() => setFilter(tab.value)}
             className={`pb-3 px-4 text-sm font-medium transition-colors border-b-2 -mb-px ${
               filter === tab.value
-                ? "border-blue-600 text-blue-600"
+                ? "border-primary-600 text-primary-600"
                 : "border-transparent text-gray-500 hover:text-gray-700"
             }`}
           >

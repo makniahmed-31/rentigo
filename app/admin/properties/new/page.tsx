@@ -129,7 +129,7 @@ export default function NewPropertyPage() {
                   </button>
                 </div>
               ))}
-              <label className="aspect-square rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-colors">
+              <label className="aspect-square rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-primary-400 hover:bg-primary-50 transition-colors">
                 <Upload className="w-5 h-5 text-gray-400 mb-1" />
                 <span className="text-xs text-gray-400">{uploading ? "Upload..." : "Ajouter"}</span>
                 <input type="file" multiple accept="image/*" className="hidden" onChange={handleImageUpload} disabled={uploading} />
@@ -143,20 +143,20 @@ export default function NewPropertyPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Titre (FR) *</label>
-                <input required value={form.titleFr} onChange={e => set("titleFr", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input required value={form.titleFr} onChange={e => set("titleFr", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Titre (EN)</label>
-                <input value={form.titleEn} onChange={e => set("titleEn", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input value={form.titleEn} onChange={e => set("titleEn", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
               </div>
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Description (FR)</label>
-              <textarea rows={4} value={form.descriptionFr} onChange={e => set("descriptionFr", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
+              <textarea rows={4} value={form.descriptionFr} onChange={e => set("descriptionFr", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Description (EN)</label>
-              <textarea rows={3} value={form.descriptionEn} onChange={e => set("descriptionEn", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
+              <textarea rows={3} value={form.descriptionEn} onChange={e => set("descriptionEn", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none" />
             </div>
           </div>
 
@@ -179,18 +179,18 @@ export default function NewPropertyPage() {
                     min={0}
                     value={form[key]}
                     onChange={e => set(key, e.target.value)}
-                    className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
                 </div>
               ))}
             </div>
             <div className="flex gap-4 mt-4">
               <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={form.parking} onChange={e => set("parking", e.target.checked)} className="text-blue-600 rounded" />
+                <input type="checkbox" checked={form.parking} onChange={e => set("parking", e.target.checked)} className="text-primary-600 rounded" />
                 <span className="text-sm text-gray-700">Parking</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={form.furnished} onChange={e => set("furnished", e.target.checked)} className="text-blue-600 rounded" />
+                <input type="checkbox" checked={form.furnished} onChange={e => set("furnished", e.target.checked)} className="text-primary-600 rounded" />
                 <span className="text-sm text-gray-700">Meublé</span>
               </label>
             </div>
@@ -209,7 +209,7 @@ export default function NewPropertyPage() {
                       ? [...form.amenities, a]
                       : form.amenities.filter(x => x !== a)
                     )}
-                    className="text-blue-600 rounded"
+                    className="text-primary-600 rounded"
                   />
                   <span className="text-sm text-gray-700">{a}</span>
                 </label>
@@ -225,7 +225,7 @@ export default function NewPropertyPage() {
             <h2 className="font-bold text-gray-900">Type de transaction</h2>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Transaction</label>
-              <select value={form.type} onChange={e => set("type", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <select value={form.type} onChange={e => set("type", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                 <option value="sale">Vente</option>
                 <option value="rent">Location</option>
               </select>
@@ -233,7 +233,7 @@ export default function NewPropertyPage() {
             {form.type === "sale" && (
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Type de vente</label>
-                <select value={form.saleType} onChange={e => set("saleType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select value={form.saleType} onChange={e => set("saleType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                   <option value="immediate">Immédiat</option>
                   <option value="sur-plan">Sur plan</option>
                 </select>
@@ -242,7 +242,7 @@ export default function NewPropertyPage() {
             {form.type === "rent" && (
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Type de location</label>
-                <select value={form.rentType} onChange={e => set("rentType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select value={form.rentType} onChange={e => set("rentType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                   <option value="long-term">Long terme</option>
                   <option value="short-term">Court terme</option>
                 </select>
@@ -250,7 +250,7 @@ export default function NewPropertyPage() {
             )}
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Catégorie</label>
-              <select value={form.propertyType} onChange={e => set("propertyType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <select value={form.propertyType} onChange={e => set("propertyType", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                 {["apartment","villa","house","commercial","terrain","office"].map(pt => (
                   <option key={pt} value={pt}>{t.property[pt as keyof typeof t.property]}</option>
                 ))}
@@ -263,26 +263,26 @@ export default function NewPropertyPage() {
             <h2 className="font-bold text-gray-900">Localisation</h2>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Gouvernorat *</label>
-              <select required value={form.governorate} onChange={e => set("governorate", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <select required value={form.governorate} onChange={e => set("governorate", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                 {TUNISIAN_GOVERNORATES.map(g => <option key={g} value={g}>{g}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Ville</label>
-              <input value={form.city} onChange={e => set("city", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <input value={form.city} onChange={e => set("city", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">Adresse</label>
-              <input value={form.address} onChange={e => set("address", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <input value={form.address} onChange={e => set("address", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Latitude</label>
-                <input type="number" step="any" value={form.lat} onChange={e => set("lat", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="number" step="any" value={form.lat} onChange={e => set("lat", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Longitude</label>
-                <input type="number" step="any" value={form.lng} onChange={e => set("lng", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="number" step="any" value={form.lng} onChange={e => set("lng", e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" />
               </div>
             </div>
           </div>
@@ -291,11 +291,11 @@ export default function NewPropertyPage() {
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 space-y-3">
             <h2 className="font-bold text-gray-900">Options</h2>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={form.isVerified} onChange={e => set("isVerified", e.target.checked)} className="text-blue-600 rounded" />
+              <input type="checkbox" checked={form.isVerified} onChange={e => set("isVerified", e.target.checked)} className="text-primary-600 rounded" />
               <span className="text-sm text-gray-700">Annonce vérifiée</span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={form.isFeatured} onChange={e => set("isFeatured", e.target.checked)} className="text-blue-600 rounded" />
+              <input type="checkbox" checked={form.isFeatured} onChange={e => set("isFeatured", e.target.checked)} className="text-primary-600 rounded" />
               <span className="text-sm text-gray-700">Mise en avant</span>
             </label>
           </div>
@@ -303,7 +303,7 @@ export default function NewPropertyPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 disabled:opacity-60 transition-colors"
+            className="w-full py-3 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 disabled:opacity-60 transition-colors"
           >
             {submitting ? "Création en cours..." : "Créer le bien"}
           </button>

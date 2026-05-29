@@ -82,7 +82,7 @@ export default function AdminPaymentsPage() {
             key={tab.value}
             onClick={() => setFilter(tab.value)}
             className={cn("pb-3 px-4 text-sm font-medium transition-colors border-b-2 -mb-px",
-              filter === tab.value ? "border-blue-600 text-blue-600" : "border-transparent text-gray-500 hover:text-gray-700"
+              filter === tab.value ? "border-primary-600 text-primary-600" : "border-transparent text-gray-500 hover:text-gray-700"
             )}
           >
             {tab.label}
@@ -119,7 +119,7 @@ export default function AdminPaymentsPage() {
                       <p className="text-xs text-gray-400">{p.user.email}</p>
                     </td>
                     <td className="px-4 py-3 text-gray-700 text-xs max-w-[150px] truncate">{p.property?.title}</td>
-                    <td className="px-4 py-3 font-bold text-blue-600">{formatPrice(p.amount)}</td>
+                    <td className="px-4 py-3 font-bold text-primary-600">{formatPrice(p.amount)}</td>
                     <td className="px-4 py-3">
                       <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
                         {p.method === "virement" ? "Virement" : p.method === "cash" ? "Cash" : "Mandat Minute"}

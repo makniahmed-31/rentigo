@@ -29,7 +29,7 @@ export default function ReservationCard({ reservation }: { reservation: Reservat
       )}
       <div className="flex-1 min-w-0">
         <div className="flex justify-between items-start mb-1">
-          <Link href={`/properties/${p._id}`} className="font-semibold text-gray-900 text-sm hover:text-blue-600 truncate pr-2">
+          <Link href={`/properties/${p._id}`} className="font-semibold text-gray-900 text-sm hover:text-primary-600 truncate pr-2">
             {p.title}
           </Link>
           <span className={cn("shrink-0 text-xs font-medium px-2.5 py-1 rounded-full", statusStyles[reservation.status])}>
@@ -48,14 +48,14 @@ export default function ReservationCard({ reservation }: { reservation: Reservat
             </span>
           )}
           {reservation.depositAmount && (
-            <span className="flex items-center gap-1 font-medium text-blue-600">
+            <span className="flex items-center gap-1 font-medium text-primary-600">
               <CreditCard className="w-3 h-3" />
               Acompte: {formatPrice(reservation.depositAmount)}
             </span>
           )}
         </div>
         <div className="flex items-center gap-2 mt-3">
-          <Link href={`/reservations/${reservation._id}`} className="text-xs font-medium text-blue-600 hover:underline">
+          <Link href={`/reservations/${reservation._id}`} className="text-xs font-medium text-primary-600 hover:underline">
             Voir le détail →
           </Link>
           {reservation.status === "approved" && (

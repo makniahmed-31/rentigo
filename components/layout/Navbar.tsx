@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
@@ -29,12 +29,20 @@ export default function Navbar() {
   const { t, lang, setLang } = useLanguage();
   const { data: session } = useSession();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href.split("?")[0]);
+    const [path, query] = href.split("?");
+    if (!pathname.startsWith(path)) return false;
+    if (!query) return true;
+    const params = new URLSearchParams(query);
+    for (const [key, value] of params) {
+      if (searchParams.get(key) !== value) return false;
+    }
+    return true;
   };
 
   return (
@@ -43,7 +51,7 @@ export default function Navbar() {
         <div className="flex items-center h-16 gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
               <Home className="w-4 h-4 text-white" />
             </div>
             <span className="text-lg font-bold text-gray-900">Rentigo</span>
@@ -58,13 +66,13 @@ export default function Navbar() {
                 className={cn(
                   "relative px-3 py-5 text-sm font-medium transition-colors",
                   isActive(href)
-                    ? "text-blue-600"
+                    ? "text-primary-600"
                     : "text-gray-600 hover:text-gray-900",
                 )}
               >
                 {t.nav[label]}
                 {isActive(href) && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-blue-600 rounded-full" />
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary-600 rounded-full" />
                 )}
               </Link>
             ))}
@@ -74,7 +82,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2 ml-auto shrink-0">
             {/* Language */}
             <button
-              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              onClick={() => setLang(lang === "fr" ? "ar" : "fr")}
               className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
               <Globe className="w-4 h-4" />
@@ -97,7 +105,7 @@ export default function Navbar() {
                       className="rounded-full"
                     />
                   ) : (
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                    <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
                       {session.user.name?.[0]}
                     </div>
                   )}
@@ -125,7 +133,7 @@ export default function Navbar() {
                     {session.user.role === "admin" && (
                       <Link
                         href="/admin"
-                        className="block px-4 py-2.5 text-sm text-blue-600 font-medium hover:bg-blue-50"
+                        className="block px-4 py-2.5 text-sm text-primary-600 font-medium hover:bg-primary-50"
                         onClick={() => setUserMenuOpen(false)}
                       >
                         {t.nav.admin}
@@ -148,7 +156,7 @@ export default function Navbar() {
               <>
                 <Link
                   href="/auth/login"
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors"
                 >
                   <Search className="w-4 h-4" />
                   {t.nav.login}
@@ -189,7 +197,7 @@ export default function Navbar() {
               className={cn(
                 "block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive(href)
-                  ? "bg-blue-50 text-blue-600"
+                  ? "bg-primary-50 text-primary-600"
                   : "text-gray-700 hover:bg-gray-50",
               )}
             >
@@ -198,7 +206,7 @@ export default function Navbar() {
           ))}
           <div className="flex items-center gap-2 pt-3 px-3 border-t border-gray-100 mt-2">
             <button
-              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              onClick={() => setLang(lang === "fr" ? "ar" : "fr")}
               className="flex items-center gap-1 text-sm text-gray-600 border border-gray-200 px-3 py-1.5 rounded-lg"
             >
               <Globe className="w-4 h-4" />
@@ -208,7 +216,7 @@ export default function Navbar() {
               <Link
                 href="/auth/login"
                 onClick={() => setMenuOpen(false)}
-                className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg"
+                className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg"
               >
                 <Search className="w-4 h-4" />
                 {t.nav.login}

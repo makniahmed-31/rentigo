@@ -35,7 +35,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-800">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-7 h-7 bg-primary-600 rounded-lg flex items-center justify-center">
               <Home className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-white">Rentigo Admin</span>
@@ -59,7 +59,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-blue-600 text-white"
+                    ? "bg-primary-600 text-white"
                     : "text-gray-400 hover:text-white hover:bg-gray-800"
                 )}
               >

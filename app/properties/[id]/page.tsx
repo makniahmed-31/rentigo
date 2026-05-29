@@ -44,7 +44,7 @@ export default function PropertyDetailPage() {
   if (!property) return (
     <div className="flex flex-col items-center justify-center py-24 text-gray-400">
       <p className="text-lg">Bien non trouvé</p>
-      <Link href="/properties" className="mt-4 text-sm text-blue-600 hover:underline">← Retour aux annonces</Link>
+      <Link href="/properties" className="mt-4 text-sm text-primary-600 hover:underline">← Retour aux annonces</Link>
     </div>
   )
 
@@ -57,9 +57,9 @@ export default function PropertyDetailPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-        <Link href="/" className="hover:text-blue-600">Accueil</Link>
+        <Link href="/" className="hover:text-primary-600">Accueil</Link>
         <span>›</span>
-        <Link href="/properties" className="hover:text-blue-600">Annonces</Link>
+        <Link href="/properties" className="hover:text-primary-600">Annonces</Link>
         <span>›</span>
         <span className="text-gray-900 font-medium truncate">{title}</span>
       </nav>
@@ -76,12 +76,12 @@ export default function PropertyDetailPage() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className={`px-2.5 py-1 text-xs font-semibold text-white rounded-full ${
-                    isSurPlan ? "bg-orange-500" : property.type === "sale" ? "bg-green-500" : "bg-blue-500"
+                    isSurPlan ? "bg-orange-500" : property.type === "sale" ? "bg-green-500" : "bg-primary-500"
                   }`}>
                     {isSurPlan ? t.property.surPlan : property.type === "sale" ? t.property.forSale : t.property.forRent}
                   </span>
                   {property.isVerified && (
-                    <span className="flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
+                    <span className="flex items-center gap-1 px-2.5 py-1 bg-primary-50 text-primary-600 text-xs font-medium rounded-full">
                       <Shield className="w-3 h-3" />
                       Vérifié
                     </span>
@@ -89,7 +89,7 @@ export default function PropertyDetailPage() {
                 </div>
                 <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
                 <div className="flex items-center gap-1.5 mt-2 text-gray-500">
-                  <MapPin className="w-4 h-4 text-blue-400" />
+                  <MapPin className="w-4 h-4 text-primary-400" />
                   <span className="text-sm">{location}</span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function PropertyDetailPage() {
             </div>
 
             <div className="mt-4 flex items-center gap-6">
-              <p className="text-3xl font-extrabold text-blue-600">
+              <p className="text-3xl font-extrabold text-primary-600">
                 {isSurPlan && <span className="text-base font-normal text-gray-500 mr-1">{t.property.from} </span>}
                 {formatPrice(property.price)}
                 {property.type === "rent" && <span className="text-base font-normal text-gray-500">{t.property.perMonth}</span>}
@@ -113,28 +113,28 @@ export default function PropertyDetailPage() {
             <div className="flex flex-wrap gap-4 mt-4 p-4 bg-gray-50 rounded-xl">
               {property.rooms != null && (
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <Bed className="w-4 h-4 text-blue-500" />
+                  <Bed className="w-4 h-4 text-primary-500" />
                   <span className="font-semibold">{property.rooms}</span>
                   <span className="text-gray-500">{t.property.rooms}</span>
                 </div>
               )}
               {property.bathrooms != null && (
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <Bath className="w-4 h-4 text-blue-500" />
+                  <Bath className="w-4 h-4 text-primary-500" />
                   <span className="font-semibold">{property.bathrooms}</span>
                   <span className="text-gray-500">{t.property.bathrooms}</span>
                 </div>
               )}
               {property.surface != null && (
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <Maximize2 className="w-4 h-4 text-blue-500" />
+                  <Maximize2 className="w-4 h-4 text-primary-500" />
                   <span className="font-semibold">{property.surface}</span>
                   <span className="text-gray-500">m²</span>
                 </div>
               )}
               {property.floor != null && (
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <Calendar className="w-4 h-4 text-blue-500" />
+                  <Calendar className="w-4 h-4 text-primary-500" />
                   <span>Étage {property.floor}</span>
                 </div>
               )}
@@ -155,8 +155,8 @@ export default function PropertyDetailPage() {
               <h2 className="text-lg font-bold text-gray-900 mb-3">{t.property.amenities}</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {property.amenities.map(a => (
-                  <div key={a} className="flex items-center gap-2 px-3 py-2 bg-blue-50 rounded-lg text-sm text-blue-700">
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                  <div key={a} className="flex items-center gap-2 px-3 py-2 bg-primary-50 rounded-lg text-sm text-primary-700">
+                    <div className="w-1.5 h-1.5 bg-primary-500 rounded-full" />
                     {a}
                   </div>
                 ))}

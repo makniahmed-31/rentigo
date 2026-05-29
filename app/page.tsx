@@ -30,12 +30,12 @@ export default function HomePage() {
       {/* CTA Banner */}
       <section className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-blue-700 rounded-3xl overflow-hidden px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="relative bg-primary-700 rounded-3xl overflow-hidden px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="text-white">
               <h2 className="text-xl font-bold mb-1">
                 Vous avez un bien à vendre ou à louer ?
               </h2>
-              <p className="text-blue-200 text-sm">
+              <p className="text-primary-200 text-sm">
                 Publiez votre annonce gratuitement et touchez des milliers de
                 clients potentiels.
               </p>
@@ -46,7 +46,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/contact"
-                className="flex items-center gap-2 px-5 py-2.5 bg-white text-blue-700 font-semibold rounded-xl hover:bg-blue-50 transition-colors text-sm"
+                className="flex items-center gap-2 px-5 py-2.5 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-colors text-sm"
               >
                 Déposer une annonce
               </Link>

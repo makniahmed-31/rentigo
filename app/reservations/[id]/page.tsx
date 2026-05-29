@@ -72,7 +72,7 @@ export default function ReservationDetailPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8">
-      <Link href="/reservations" className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 mb-6">
+      <Link href="/reservations" className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6">
         <ArrowLeft className="w-4 h-4" />
         Mes demandes
       </Link>
@@ -99,14 +99,14 @@ export default function ReservationDetailPage() {
               </div>
             )}
             <div>
-              <Link href={`/properties/${p._id}`} className="font-semibold text-gray-900 hover:text-blue-600">
+              <Link href={`/properties/${p._id}`} className="font-semibold text-gray-900 hover:text-primary-600">
                 {p.title}
               </Link>
               <div className="flex items-center gap-1 text-sm text-gray-500 mt-1">
                 <MapPin className="w-3.5 h-3.5" />
                 {p.location?.city}, {p.location?.governorate}
               </div>
-              <p className="text-blue-600 font-bold text-sm mt-1">{formatPrice(p.price)}{p.type === "rent" && "/mois"}</p>
+              <p className="text-primary-600 font-bold text-sm mt-1">{formatPrice(p.price)}{p.type === "rent" && "/mois"}</p>
             </div>
           </div>
         </div>
@@ -117,13 +117,13 @@ export default function ReservationDetailPage() {
           <div className="space-y-3">
             {reservation.visitDate && (
               <div className="flex items-center gap-3">
-                <Calendar className="w-4 h-4 text-blue-400" />
+                <Calendar className="w-4 h-4 text-primary-400" />
                 <span className="text-sm text-gray-700">{formatDate(reservation.visitDate)} {reservation.visitTime && `à ${reservation.visitTime}`}</span>
               </div>
             )}
             {reservation.paymentMethod && (
               <div className="flex items-center gap-3">
-                <CreditCard className="w-4 h-4 text-blue-400" />
+                <CreditCard className="w-4 h-4 text-primary-400" />
                 <span className="text-sm text-gray-700">
                   {reservation.paymentMethod === "virement" ? t.reservation.virement
                     : reservation.paymentMethod === "cash" ? t.reservation.cash
@@ -132,9 +132,9 @@ export default function ReservationDetailPage() {
               </div>
             )}
             {reservation.depositAmount && (
-              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-xl">
+              <div className="flex justify-between items-center p-3 bg-primary-50 rounded-xl">
                 <span className="text-sm text-gray-700">{t.reservation.deposit}</span>
-                <span className="font-bold text-blue-600">{formatPrice(reservation.depositAmount)}</span>
+                <span className="font-bold text-primary-600">{formatPrice(reservation.depositAmount)}</span>
               </div>
             )}
           </div>
