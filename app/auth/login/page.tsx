@@ -52,7 +52,7 @@ export default function LoginPage() {
         {/* Language toggle */}
         <div className="flex justify-end p-6">
           <button
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+            onClick={() => setLang(lang === "fr" ? "ar" : "fr")}
             className="flex items-center gap-1.5 text-sm font-medium text-gray-600 border border-gray-200 px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors"
           >
             <Globe className="w-4 h-4" />
