@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { TUNISIAN_GOVERNORATES, PROPERTY_AMENITIES } from "@/lib/utils"
-import { Upload, X, ArrowLeft } from "lucide-react"
+import { Upload, X, ArrowLeft, Loader2 } from "lucide-react"
 import Link from "next/link"
 import toast from "react-hot-toast"
 
@@ -130,8 +130,10 @@ export default function NewPropertyPage() {
                 </div>
               ))}
               <label className="aspect-square rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-primary-400 hover:bg-primary-50 transition-colors">
-                <Upload className="w-5 h-5 text-gray-400 mb-1" />
-                <span className="text-xs text-gray-400">{uploading ? "Upload..." : "Ajouter"}</span>
+                {uploading
+                  ? <Loader2 className="w-5 h-5 text-primary-400 animate-spin mb-1" />
+                  : <Upload className="w-5 h-5 text-gray-400 mb-1" />}
+                <span className="text-xs text-gray-400">{uploading ? "Envoi..." : "Ajouter"}</span>
                 <input type="file" multiple accept="image/*" className="hidden" onChange={handleImageUpload} disabled={uploading} />
               </label>
             </div>
