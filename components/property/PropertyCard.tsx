@@ -24,7 +24,7 @@ export default function PropertyCard({ property, compact }: Props) {
   const [saved, setSaved] = useState(false)
   const [imgIdx, setImgIdx] = useState(0)
 
-  const images = (property.images || []).filter(img => !img.url.includes('unsplash.com'))
+  const images = property.images || []
   const imgSrc = images[imgIdx]?.url || "https://res.cloudinary.com/dtcogssxh/image/upload/v1780264353/rentigo/static/property-placeholder.png"
 
   const isSurPlan = property.saleType === "sur-plan"
