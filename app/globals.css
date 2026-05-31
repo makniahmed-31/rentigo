@@ -10,41 +10,53 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist);
 
-  /* Primary scale #1658e9 */
-  --color-primary-50: #eef3fd;
-  --color-primary-100: #d9e5fb;
-  --color-primary-200: #b3cbf8;
-  --color-primary-300: #7aa4f3;
-  --color-primary-400: #4b82ef;
-  --color-primary-500: #2e6deb;
-  --color-primary-600: #1658e9;
-  --color-primary-700: #1147c4;
-  --color-primary-800: #0f38a0;
-  --color-primary-900: #0c2c7a;
+  /* =========================
+     PRIMARY (#4c83eb)
+  ========================= */
+  --color-primary-50: #eff5ff;
+  --color-primary-100: #dbe7ff;
+  --color-primary-200: #b9d0ff;
+  --color-primary-300: #8fb2fb;
+  --color-primary-400: #6f98f0;
+  --color-primary-500: #4c83eb;
+  --color-primary-600: #3e6fd6;
+  --color-primary-700: #325bb3;
+  --color-primary-800: #284a90;
+  --color-primary-900: #1e376a;
 
-  /* Secondary #aac5e5 at 300 */
-  --color-secondary-50: #f0f6fb;
-  --color-secondary-100: #deeaf7;
-  --color-secondary-200: #c7d9f0;
-  --color-secondary-300: #aac5e5;
-  --color-secondary-400: #88aed8;
-  --color-secondary-500: #6596cb;
-  --color-secondary-600: #4a7fb8;
-  --color-secondary-700: #3a659a;
-  --color-secondary-800: #2d4f7a;
-  --color-secondary-900: #213c5e;
+  /* =========================
+     SECONDARY (#c44e21)
+  ========================= */
+  --color-secondary-50: #fdf1ec;
+  --color-secondary-100: #f9dcd2;
+  --color-secondary-200: #f2b8a5;
+  --color-secondary-300: #ea8d73;
+  --color-secondary-400: #e0664a;
+  --color-secondary-500: #c44e21;
+  --color-secondary-600: #a7411c;
+  --color-secondary-700: #8a3617;
+  --color-secondary-800: #6e2b12;
+  --color-secondary-900: #53200e;
 
-  /* Tertiary #c88a52 at 500 */
-  --color-tertiary-50: #fdf4ea;
-  --color-tertiary-100: #fae4cb;
-  --color-tertiary-200: #f5c99a;
-  --color-tertiary-300: #eeab6d;
-  --color-tertiary-400: #d99660;
-  --color-tertiary-500: #c88a52;
-  --color-tertiary-600: #b07340;
-  --color-tertiary-700: #8f5c30;
-  --color-tertiary-800: #704825;
-  --color-tertiary-900: #54361b;
+  /* =========================
+     TERTIARY (#4c461f)
+  ========================= */
+  --color-tertiary-50: #f4f3ee;
+  --color-tertiary-100: #e3e1d3;
+  --color-tertiary-200: #c7c3a8;
+  --color-tertiary-300: #aaa77c;
+  --color-tertiary-400: #7f7a50;
+  --color-tertiary-500: #4c461f;
+  --color-tertiary-600: #403b1b;
+  --color-tertiary-700: #343017;
+  --color-tertiary-800: #282512;
+  --color-tertiary-900: #1c1a0d;
+}
+
+@layer base {
+  button {
+    cursor: pointer;
+  }
 }
 
 body {

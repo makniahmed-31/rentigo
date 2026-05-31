@@ -19,7 +19,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex">
       {/* Left panel - visual */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-primary-700 flex-col justify-between p-12">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80')] bg-cover bg-center opacity-30" />
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dtcogssxh/image/upload/v1780264335/rentigo/static/login-bg.png')] bg-cover bg-center opacity-30" />
         <div className="relative z-10">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center">

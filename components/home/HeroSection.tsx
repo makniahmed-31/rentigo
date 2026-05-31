@@ -6,6 +6,7 @@ import { Search, MapPin, Home, DollarSign, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TUNISIAN_GOVERNORATES } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+import houseModel from "@/assets/3d-rendering-house-model.png";
 
 const PRICE_OPTIONS = [
   { label: "Aucun", value: "" },
@@ -23,6 +24,12 @@ export default function HeroSection() {
   const [governorate, setGovernorate] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const filteredGovernorates = TUNISIAN_GOVERNORATES.filter((g) =>
+    g.toLowerCase().includes(locationInput.toLowerCase()),
+  );
 
   const handleSearch = () => {
     const params = new URLSearchParams();
@@ -35,8 +42,21 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-sky-50 via-white to-primary-50 overflow-hidden min-h-[560px] flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 lg:py-0">
+    <section className="relative bg-gradient-to-br from-white via-white to-primary-100 overflow-hidden min-h-[560px] flex items-center">
+      {/* Right-side background image */}
+      <div className="absolute inset-y-0 right-0  hidden lg:block">
+        <Image
+          src={houseModel}
+          alt="Luxury property"
+          height={560}
+          priority
+          className="object-cover"
+        />
+
+        {/* Fade into the content area */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" /> */}
+      </div>
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 lg:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* LEFT — text + search */}
           <div className="relative z-10">
@@ -49,50 +69,86 @@ export default function HeroSection() {
               {t.hero.description}
             </p>
 
-            {/* Tab buttons */}
-            <div className="flex gap-2 mt-7 mb-4">
-              {(["sale", "rent", "sur-plan"] as const).map((tb) => (
-                <button
-                  key={tb}
-                  onClick={() => setTab(tb)}
-                  className={cn(
-                    "px-5 py-2 rounded-lg text-sm font-semibold transition-colors border",
-                    tab === tb
-                      ? "bg-primary-600 text-white border-primary-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:border-primary-400 hover:text-primary-600",
-                  )}
-                >
-                  {tb === "sale"
-                    ? t.hero.buy
-                    : tb === "rent"
-                      ? t.hero.rent
-                      : t.hero.surplan}
-                </button>
-              ))}
+            <div className="flex mt-7 mb-4 bg-white border border-gray-200 rounded-xl overflow-hidden w-fit">
+              {(["sale", "rent", "sur-plan"] as const).map((tb, index) => {
+                const isActive = tab === tb;
+
+                const isFirst = index === 0;
+                const isLast = index === 2;
+
+                return (
+                  <button
+                    key={tb}
+                    onClick={() => setTab(tb)}
+                    className={cn(
+                      "px-6 py-2 text-sm font-semibold transition-all",
+                      "border-r border-gray-200 last:border-r-0",
+                      isActive
+                        ? "bg-primary-500 text-white"
+                        : "bg-white text-gray-600 hover:text-primary-600",
+                      isFirst && "rounded-l-lg",
+                      isLast && "rounded-r-lg",
+                    )}
+                  >
+                    {tb === "sale"
+                      ? t.hero.buy
+                      : tb === "rent"
+                        ? t.hero.rent
+                        : t.hero.surplan}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Search bar */}
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-visible">
               <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
-                {/* Location */}
-                <div className="flex items-center gap-2 px-4 py-3 flex-1">
+                {/* Location autocomplete */}
+                <div className="flex items-center gap-2 px-4 py-3 flex-1 relative">
                   <MapPin className="w-4 h-4 text-primary-500 shrink-0" />
-                  <div className="flex flex-col min-w-0">
+
+                  <div className="flex flex-col min-w-0 w-full">
                     <span className="text-[10px] font-semibold text-gray-400 uppercase leading-none mb-0.5">
                       {t.search.location}
                     </span>
-                    <select
-                      value={governorate}
-                      onChange={(e) => setGovernorate(e.target.value)}
+
+                    <input
+                      value={locationInput}
+                      onChange={(e) => {
+                        setLocationInput(e.target.value);
+                        setShowSuggestions(true);
+                      }}
+                      onFocus={() => setShowSuggestions(true)}
+                      placeholder={t.search.allTunisia}
                       className="text-sm font-medium text-gray-800 outline-none bg-transparent w-full"
-                    >
-                      <option value="">{t.search.allTunisia}</option>
-                      {TUNISIAN_GOVERNORATES.map((g) => (
-                        <option key={g} value={g}>
-                          {g}
-                        </option>
-                      ))}
-                    </select>
+                    />
+
+                    {/* Suggestions */}
+                    {showSuggestions && locationInput && (
+                      <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-auto">
+                        {filteredGovernorates.length > 0 ? (
+                          filteredGovernorates.map((g) => (
+                            <button
+                              key={g}
+                              type="button"
+                              onClick={() => {
+                                setLocationInput(g);
+                                setGovernorate(g);
+                                setShowSuggestions(false);
+                              }}
+                              className="w-full flex items-center gap-2 text-left px-3 py-2 text-sm hover:bg-gray-100"
+                            >
+                              <MapPin className="w-3.5 h-3.5 text-secondary-500 shrink-0" />
+                              <span>{g}</span>
+                            </button>
+                          ))
+                        ) : (
+                          <div className="px-3 py-2 text-sm text-gray-400">
+                            No results
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -176,38 +232,8 @@ export default function HeroSection() {
               ))}
             </div>
           </div>
-
-          {/* RIGHT — hero image */}
-          <div className="hidden lg:block relative">
-            {/* Location badge */}
-            <div className="absolute top-8 left-8 z-10 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center shrink-0">
-                <MapPin className="w-4 h-4 text-primary-600" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-gray-900">
-                  Tunis, Les Berges du Lac
-                </p>
-                <p className="text-xs text-gray-400">Tunisie</p>
-              </div>
-            </div>
-
-            <div className="relative w-full h-[480px] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=85"
-                alt="Luxe property Tunisia"
-                fill
-                className="object-cover"
-                priority
-                sizes="600px"
-              />
-            </div>
-          </div>
         </div>
       </div>
-
-      {/* decorative blur */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-40 pointer-events-none" />
     </section>
   );
 }

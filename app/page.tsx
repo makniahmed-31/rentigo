@@ -29,7 +29,7 @@ export default function HomePage() {
 
       {/* CTA Banner */}
       <section className="py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-primary-700 rounded-3xl overflow-hidden px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="text-white">
               <h2 className="text-xl font-bold mb-1">
