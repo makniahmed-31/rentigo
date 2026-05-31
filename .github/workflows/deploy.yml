@@ -16,6 +16,8 @@ jobs:
           username: root
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd /root/rentigo
             git pull origin master
             cat > .env << 'EOF'
@@ -37,4 +39,4 @@ jobs:
             EOF
             npm ci
             npm run build
-            pm2 restart rentigo-client
+            pm2 restart rentigo-client || pm2 start ecosystem.config.js
