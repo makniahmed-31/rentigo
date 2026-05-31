@@ -36,9 +36,10 @@ export default function PropertyMap({ properties, center = [33.886917, 9.537499]
       const map = L.map(mapRef.current).setView(center, zoom)
       mapInstance.current = map
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-        maxZoom: 19,
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a> contributors © <a href="https://carto.com">CARTO</a>',
+        subdomains: "abcd",
+        maxZoom: 20,
       }).addTo(map)
 
       properties.forEach(p => {
